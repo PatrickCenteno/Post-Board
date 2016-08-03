@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
 
 	<title>Post-Board</title>
 </head>
@@ -50,7 +51,7 @@
 		</div>
 		<div class="container">
 			<div id="inputGroupID" class="input-group">
-		      <input type="text" class="form-control" placeholder="Enter your post">
+		      <input id="submitTextBox" type="text" class="form-control" placeholder="Enter your post">
 		      <span class="input-group-btn">
 		        <button id="formSubmitButton" class="btn btn-default" type="button">Go!</button>
 		      </span>
