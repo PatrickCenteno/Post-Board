@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +19,11 @@
 	<title>Post-Board</title>
 </head>
 <body>
+
+	<?php
+		// post information and data will be in variable in this script
+		include_once('scripts/init.php');
+	?>
 
 	<!-- Will be a .php file and store some factors that will be hardcoded into this version in a db -->
 	<div id="navBarContainer">
@@ -52,6 +56,16 @@
 		      </span>
 		    </div>
 		</div>
+	</section>
+
+	<section id="posts">
+		<?php 
+			//simply for debugging right now
+			if ($has_posts)
+				var_dump($post_data); 
+			else
+				echo "No posts";
+		?>
 	</section>
 
 
