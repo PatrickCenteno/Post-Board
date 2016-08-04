@@ -49,7 +49,7 @@
 
 	<section id="submitFormSection">
 		<div id="submitHeaderContainer">
-			<h1>Submit your post here</h1>
+			<h1>Type It Up!</h1>
 		</div>
 		<div class="container">
 			<div id="inputGroupID" class="input-group">

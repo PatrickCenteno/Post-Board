@@ -41,8 +41,15 @@
 	margin-right: 40px;
 	margin-left: 40px;
 	height: 140px;
+	/*border: 1px solid #626567;*/
+}
+
+
+
+
 }
 
 #dateOfPost {
 	margin-left: 40px;
+	color: #626567
 }
