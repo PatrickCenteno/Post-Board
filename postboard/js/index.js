@@ -11,7 +11,6 @@ $(document).ready( function(){
 		$addPost($postText, $now);
 	});
 
-	
 
 	$addPost = function($postText, $now){
 		$.ajax({
@@ -20,6 +19,9 @@ $(document).ready( function(){
 			data:{post_text:$postText, date:$now},
 		}).then(function(response) {
 			console.log(response);
+			// When ajax call goes through and response is received,
+			// Display on front end
+			$addToFrontList($postText, $now);
 		});
 	}
 
@@ -36,6 +38,13 @@ $(document).ready( function(){
 			$day = "0" + $day;
 
 		return $year + "-" + $month + "-" + $day;
+	}
+
+	$addToFrontList = function($postText, $now){
+		$("#listOfPosts").append(
+			"<li class=\"list-group-item postItem\"> " +
+			$postText + "</li>" + "<div id=\"dateOfPost\">" +
+			$now + "</div");
 	}
 
 });
