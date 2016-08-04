@@ -2,13 +2,38 @@ $(document).ready( function(){
 	//$postText = $("submitTextBox").val();
 
 	$("#formSubmitButton").click( function (){
-		console.log($("#submitTextBox").val());
+		$postText = $("#submitTextBox").val();
+
+		// initializes moment object and formats date
+		$now = $formatDate(moment(new Date(), "YYYY-MM-DD"));
 
 		//ajax call to add post and date to server
+		$addPost($postText, $now);
 	});
 
-	$addPost = function($postText){
+	$addPost = function($postText, $now){
+		$.ajax({
+			type:'post',
+			url: "http://" + PostBoard.hostname + ":8888/scripts/submit_post.php",
+			data:{post_text:$postText, date:$now},
+		}).then(function(response) {
+			console.log(response);
+		});
+	}
 
+	// Ensures that date and month are always two digits
+	$formatDate = function($now){
+		$year = $now.year();
+		$month = $now.month();
+		$day = $now.day();
+
+		if ($month < 10)
+			$month = "0" + $month;
+
+		if ($day < 10)
+			$day = "0" + $day;
+
+		return $year + "-" + $month + "-" + $day;
 	}
 
 });

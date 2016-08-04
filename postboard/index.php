@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/local.js"></script>
     <script src="js/index.js"></script>
 
 	<title>Post-Board</title>
@@ -61,11 +63,8 @@
 
 	<section id="posts">
 		<?php 
-			//simply for debugging right now
-			if ($has_posts)
-				var_dump($post_data); 
-			else
-				echo "No posts";
+			//simply for debugging right now($has_posts)
+			var_dump($post_data); 
 		?>
 	</section>
 
