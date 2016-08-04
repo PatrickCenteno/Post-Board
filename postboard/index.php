@@ -62,12 +62,14 @@
 	</section>
 
 	<section id="posts">
-		<ul class="list-group">
+		<ul id="listOfPosts" class="list-group">
 			<?php 
 				for ($i = 0; $i < $num_of_posts; $i++){
 				?> 
-					<li class="list-group-item"><?php echo $post_data[$i]['post']; ?></li>
+					<li class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
+					<div id="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></div>
 		 <?php  } ?>
+		</ul>
 	</section>
 
 

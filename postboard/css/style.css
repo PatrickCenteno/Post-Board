@@ -35,3 +35,14 @@
 #inputGroupID{
 	margin: 30px;
 }
+
+#listOfPosts .postItem{
+	margin-top: 40px;
+	margin-right: 40px;
+	margin-left: 40px;
+	height: 140px;
+}
+
+#dateOfPost {
+	margin-left: 40px;
+}
