@@ -67,8 +67,7 @@
 				for ($i = 0; $i < $num_of_posts; $i++){
 				?> 
 					<li class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
-					<span id="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
-					<button id="deleteButton" type="button" class="btn btn-sm btn-danger">Delete Post</button>
+					<div id="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></div>
 		 <?php  } ?>
 		</ul>
 	</section>
