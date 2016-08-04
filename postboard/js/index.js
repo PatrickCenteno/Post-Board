@@ -40,6 +40,7 @@ $(document).ready( function(){
 		return $year + "-" + $month + "-" + $day;
 	}
 
+	// Appends an <li> and <div> tag to the #listOfPosts
 	$addToFrontList = function($postText, $now){
 		$("#listOfPosts").append(
 			"<li class=\"list-group-item postItem\"> " +
