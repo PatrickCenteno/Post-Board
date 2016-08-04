@@ -16,9 +16,7 @@
 	$post_text = $_POST['post_text'];
 	$date = $_POST['date'];
 
-	if (add_posts($post_text, $date))
-		print_r(json_encode(array('success' => 'true', 'message' => 'posted')));
-	else
-		print_r(json_encode(array('success' => 'true', 'message' => 'post_failed')));
+	add_posts($post_text, $date);
+	print_r(json_encode(array('success' => 'true', 'message' => 'posted')));
 
  ?>
