@@ -62,10 +62,12 @@
 	</section>
 
 	<section id="posts">
-		<?php 
-			//simply for debugging right now($has_posts)
-			var_dump($post_data); 
-		?>
+		<ul class="list-group">
+			<?php 
+				for ($i = 0; $i < $num_of_posts; $i++){
+				?> 
+					<li class="list-group-item"><?php echo $post_data[$i]['post']; ?></li>
+		 <?php  } ?>
 	</section>
 
 

@@ -11,6 +11,8 @@ $(document).ready( function(){
 		$addPost($postText, $now);
 	});
 
+	
+
 	$addPost = function($postText, $now){
 		$.ajax({
 			type:'post',
