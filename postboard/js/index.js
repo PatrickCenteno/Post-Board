@@ -1,6 +1,7 @@
 $(document).ready( function(){
 	//$postText = $("submitTextBox").val();
 
+	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
 		$postText = $("#submitTextBox").val();
 
@@ -9,6 +10,12 @@ $(document).ready( function(){
 
 		//ajax call to add post and date to server
 		$addPost($postText, $now);
+	});
+
+	// Click handler for delete button. Its delegated from the unordered list
+	// Its contained within
+	$("#listOfPosts").on("click", "button.btn-danger", function(){
+		console.log("A delete Button is being clicked");
 	});
 
 
@@ -44,8 +51,8 @@ $(document).ready( function(){
 	$addToFrontList = function($postText, $now){
 		$("#listOfPosts").append(
 			"<li class=\"list-group-item postItem\"> " +
-			$postText + "</li>" + "<span id=\"dateOfPost\">" +
-			$now + "</span>" + "<button id=\"deleteBUtton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
+			$postText + "</li>" + "<span class=\"dateOfPost\">" +
+			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
 	}
 
 });

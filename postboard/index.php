@@ -67,11 +67,29 @@
 				for ($i = 0; $i < $num_of_posts; $i++){
 				?> 
 					<li class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
-					<span id="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
-					<button id="deleteBUtton" type="button" class="btn btn-danger btn-small">Delete Post</button>
+					<span id="<?php echo 'date' . $i; ?>s" class="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
+					<button id="<?php echo 'deleteButton' . $i; ?>" type="button" class="btn btn-danger btn-small">Delete Post</button>
 		 <?php  } ?>
 		</ul>
 	</section>
+
+	<!-- Modal -->
+    <div class="modal fade" id="deleteAlertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Delete</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this?
+          </div>
+          <div class="modal-footer">
+            <button id="noButton" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            <button id="yesButton" type="button" class="btn btn-primary" >Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
