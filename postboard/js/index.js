@@ -44,8 +44,8 @@ $(document).ready( function(){
 	$addToFrontList = function($postText, $now){
 		$("#listOfPosts").append(
 			"<li class=\"list-group-item postItem\"> " +
-			$postText + "</li>" + "<div id=\"dateOfPost\">" +
-			$now + "</div");
+			$postText + "</li>" + "<span id=\"dateOfPost\">" +
+			$now + "</span>" + "<button id=\"deleteBUtton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
 	}
 
 });
