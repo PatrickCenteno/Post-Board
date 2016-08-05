@@ -1,5 +1,10 @@
 $(document).ready( function(){
-	//$postText = $("submitTextBox").val();
+
+	// Setting each delete item as global variables so they can 
+	// be easily removed from the modal pop-up event handling functions
+	$buttonToDelete = null;
+	$listItemToDelete = null;
+	$dateToDelete = null;
 
 	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
@@ -16,6 +21,15 @@ $(document).ready( function(){
 	// Its contained within
 	$("#listOfPosts").on("click", "button.btn-danger", function(){
 		console.log("A delete Button is being clicked");
+
+		// Get the id number of the button clicked
+		$buttonToDelete = $(this).attr("id");
+		$listItemToDelete = "postItemId" + $(this).attr("id");
+		$dateToDelete = "date" + $(this).attr("id");
+
+		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete);
+
+		$showModal();
 	});
 
 
@@ -47,12 +61,24 @@ $(document).ready( function(){
 		return $year + "-" + $month + "-" + $day;
 	}
 
+	$showModal = function(){
+		$("#deleteAlertModal").modal("show");
+	}
+
 	// Appends an <li> and <div> tag to the #listOfPosts
 	$addToFrontList = function($postText, $now){
 		$("#listOfPosts").append(
 			"<li class=\"list-group-item postItem\"> " +
 			$postText + "</li>" + "<span class=\"dateOfPost\">" +
 			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
+	}
+
+	$checkDeleteItemsNull = function(){
+		if($buttonToDelete === null ||
+		   $listItemToDelete === null ||
+		   $dateToDelete === null)
+				return false;
+		return true;
 	}
 
 });
