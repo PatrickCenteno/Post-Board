@@ -32,7 +32,12 @@ $(document).ready( function(){
 		$showModal();
 	});
 
+	//Click Handler for yes button on modal
+	$("#yesButton").click( function () {
+		 $("#deleteAlertModal").modal("toggle");
+	});
 
+	// Ajax call to add a post to database
 	$addPost = function($postText, $now){
 		$.ajax({
 			type:'post',
@@ -44,6 +49,11 @@ $(document).ready( function(){
 			// Display on front end
 			$addToFrontList($postText, $now);
 		});
+	}
+
+	// Ajax call to delete a post from the databse
+	$deletePost = function(){
+		// TODO
 	}
 
 	// Ensures that date and month are always two digits
