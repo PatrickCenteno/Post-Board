@@ -6,7 +6,8 @@ $(document).ready( function(){
 	$listItemToDelete = null;
 	$dateToDelete = null;
 	$hiddenInput = null;
-	$maxID = null;
+	$maxID = 0;
+	$maxIdUsed = false;
 
 	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
@@ -17,6 +18,7 @@ $(document).ready( function(){
 
 		//ajax call to add post and date to server
 		$addPost($postText, $now);
+		$("#submitTextBox").val("");
 	});
 
 	// Click handler for delete button. Its delegated from the unordered list
@@ -104,10 +106,25 @@ $(document).ready( function(){
 
 	// Appends an <li> and <div> tag to the #listOfPosts
 	$addToFrontList = function($postText, $now){
+		// on page load when all posts pulled were loaded from db,
+		// set the maxID to whatever the SELECT MAX(ID) value is
+		// If posts have been dynamically added, increment what the existing value of
+		// maxID is
+		if ($maxIdUsed)
+			$maxID++;
+		else
+			$maxID = $("#maxID").val();
+
+		console.log("inside of addToFrontList " + $maxID);
+
+		// Add that maxID to the appended html as hidden input just as hidden input
+		// is added on page load from php for loop
 		$("#listOfPosts").append(
 			"<li class=\"list-group-item postItem\"> " +
 			$postText + "</li>" + "<span class=\"dateOfPost\">" +
-			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
+			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>" +
+			"<input id=\"idNum\"" + $maxID + " type=\"hidden\" value=\"" + $maxID + ">" );
+		$maxIdUsed = true;
 	}
 
 	// ensures that the global variables correspondin to the
@@ -120,6 +137,4 @@ $(document).ready( function(){
 				return false;
 		return true;
 	}
-
-
 });
