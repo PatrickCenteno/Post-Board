@@ -6,6 +6,7 @@ $(document).ready( function(){
 	$listItemToDelete = null;
 	$dateToDelete = null;
 	$hiddenInput = null;
+	$maxID = null;
 
 	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
