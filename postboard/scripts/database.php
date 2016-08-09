@@ -29,4 +29,23 @@
 		$stmt = $db_pdo->prepare($query);
 		$stmt->execute(array($ID));
 	}
+
+	function get_max_ID(){
+		$db_pdo = new PDO(DB_DSN, DB_U, DB_P);
+
+		$query= "SELECT MAX(ID) from posts";
+		$stmt = $db_pdo->prepare($query);
+		$stmt->execute();
+
+		$temp = $stmt->fetch();
+
+		if($temp[0] === NULL){
+			$query2 = "TRUNCATE posts";
+			$stmt2 = $db_pdo->prepare($query2);
+			$stmt2->execute();
+			return 0;
+		}
+		else
+			return $temp[0];
+	}
  ?>

@@ -63,6 +63,7 @@
 
 	<section id="posts">
 		<ul id="listOfPosts" class="list-group">
+			<input type="hidden" id="maxID" value="<?php echo $max_id; ?>">
 			<?php 
 				for ($i = 0; $i < $num_of_posts; $i++){
 				?> 
