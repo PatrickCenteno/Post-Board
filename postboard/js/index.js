@@ -28,18 +28,18 @@ $(document).ready( function(){
 		$listItemToDelete = "postItemId" + $(this).attr("id");
 		$dateToDelete = "date" + $(this).attr("id");
 		$hiddenInput = "idNum" + $(this).attr("id");
-		$hiddenInputVal = $("#" + $hiddenInput).val();
 
-		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete + " " + $hiddenInputVal);
+		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete + " " + $hiddenInput);
 
-		// Submit ID in to delete post function and remove all corresponding elements
-
+		// Call ajax function when yes is clicked in alert modal
 		$showModal();
 	});
 
 	//Click Handler for yes button on modal
 	$("#yesButton").click( function () {
-		 $("#deleteAlertModal").modal("toggle");
+		// Submit ID in to delete post function and remove all corresponding elements
+		$deletePost($("#" + $hiddenInput).val());
+		$("#deleteAlertModal").modal("toggle");
 	});
 
 	// Ajax call to add a post to database
@@ -58,7 +58,18 @@ $(document).ready( function(){
 
 	// Ajax call to delete a post from the databse
 	$deletePost = function($ID){
-		// TODO
+		console.log("inside of deletePost " + $ID);
+		$.ajax({
+			type:'post',
+			url:'http://' + PostBoard.hostname + ":8888/scripts/delete_post.php",
+			data:{ID:$ID},
+		}).then(function(response) {
+			console.log(response);
+
+			// .remove() neccessary elements
+			$removePostElements();
+
+		});
 	}
 
 	// Ensures that date and month are always two digits
@@ -76,6 +87,16 @@ $(document).ready( function(){
 		return $year + "-" + $month + "-" + $day;
 	}
 
+	// calls .remove on the post elements of the post
+	// that was deleted
+	$removePostElements = function(){
+		$("#" + $buttonToDelete).remove();
+		$("#" + $listItemToDelete).remove();
+		$("#" + $dateToDelete).remove(); 
+		$("#" + $hiddenInput).remove();
+	}
+
+	// displays the bootstrap modal
 	$showModal = function(){
 		$("#deleteAlertModal").modal("show");
 	}
@@ -88,12 +109,16 @@ $(document).ready( function(){
 			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>");
 	}
 
+	// ensures that the global variables correspondin to the
+	// deleted post elements are null
 	$checkDeleteItemsNull = function(){
 		if($buttonToDelete === null ||
 		   $listItemToDelete === null ||
-		   $dateToDelete === null)
+		   $dateToDelete === null ||
+		   $hiddenInput === null)
 				return false;
 		return true;
 	}
+
 
 });
