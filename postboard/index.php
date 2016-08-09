@@ -66,6 +66,7 @@
 			<?php 
 				for ($i = 0; $i < $num_of_posts; $i++){
 				?> 
+					<input id="<?php echo 'idNum' . $i; ?>" type="hidden" value="<?php echo $post_data[$i]['ID']; ?>">
 					<li id="<?php echo 'postItemId' . $i; ?>" class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
 					<span id="<?php echo 'date' . $i; ?>" class="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
 					<button id="<?php echo $i; ?>" type="button" class="btn btn-danger btn-small">Delete Post</button>

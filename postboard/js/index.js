@@ -5,6 +5,7 @@ $(document).ready( function(){
 	$buttonToDelete = null;
 	$listItemToDelete = null;
 	$dateToDelete = null;
+	$hiddenInput = null;
 
 	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
@@ -26,8 +27,12 @@ $(document).ready( function(){
 		$buttonToDelete = $(this).attr("id");
 		$listItemToDelete = "postItemId" + $(this).attr("id");
 		$dateToDelete = "date" + $(this).attr("id");
+		$hiddenInput = "idNum" + $(this).attr("id");
+		$hiddenInputVal = $("#" + $hiddenInput).val();
 
-		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete);
+		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete + " " + $hiddenInputVal);
+
+		// Submit ID in to delete post function and remove all corresponding elements
 
 		$showModal();
 	});
@@ -52,7 +57,7 @@ $(document).ready( function(){
 	}
 
 	// Ajax call to delete a post from the databse
-	$deletePost = function(){
+	$deletePost = function($ID){
 		// TODO
 	}
 
