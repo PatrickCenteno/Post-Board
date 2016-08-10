@@ -41,6 +41,7 @@ $(document).ready( function(){
 	//Click Handler for yes button on modal
 	$("#yesButton").click( function () {
 		// Submit ID in to delete post function and remove all corresponding elements
+		console.log($hiddenInput + "maxID " + $maxID);
 		$deletePost($("#" + $hiddenInput).val());
 		$("#deleteAlertModal").modal("toggle");
 	});
@@ -120,10 +121,10 @@ $(document).ready( function(){
 		// Add that maxID to the appended html as hidden input just as hidden input
 		// is added on page load from php for loop
 		$("#listOfPosts").append(
-			"<li class=\"list-group-item postItem\"> " +
-			$postText + "</li>" + "<span class=\"dateOfPost\">" +
-			$now + "</span>" + "<button id=\"deleteButton\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>" +
-			"<input id=\"idNum\"" + $maxID + " type=\"hidden\" value=\"" + $maxID + ">" );
+			"<li id=\"postItemId" + $maxID + "\" class=\"list-group-item postItem\"> " +
+			$postText + "</li>" + "<span id=\"date" + $maxID +"\" class=\"dateOfPost\">" +
+			$now + "</span>" + "<button id=\"" + $maxID +"\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>" +
+			"<input id=\"idNum" + $maxID + "\" type=\"hidden\" value=\"" + $maxID + "\">" );
 		$maxIdUsed = true;
 	}
 
