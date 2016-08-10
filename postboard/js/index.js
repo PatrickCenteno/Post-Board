@@ -28,15 +28,12 @@ $(document).ready( function(){
 	// Click handler for delete button. Its delegated from the unordered list
 	// Its contained within
 	$("#listOfPosts").on("click", "button.btn-danger", function(){
-		console.log("A delete Button is being clicked");
 
 		// Get the id number of the button clicked
 		$buttonToDelete = $(this).attr("id");
 		$listItemToDelete = "postItemId" + $(this).attr("id");
 		$dateToDelete = "date" + $(this).attr("id");
 		$hiddenInput = "idNum" + $(this).attr("id");
-
-		console.log($buttonToDelete + " " + $listItemToDelete + " " + $dateToDelete + " " + $hiddenInput);
 
 		// Call ajax function when yes is clicked in alert modal
 		$showModal();
@@ -45,7 +42,6 @@ $(document).ready( function(){
 	//Click Handler for yes button on modal
 	$("#yesButton").click( function () {
 		// Submit ID in to delete post function and remove all corresponding elements
-		console.log($hiddenInput + "maxID " + $maxID);
 		$deletePost($("#" + $hiddenInput).val());
 		$("#deleteAlertModal").modal("toggle");
 	});
@@ -57,7 +53,6 @@ $(document).ready( function(){
 			url: "http://" + PostBoard.hostname + ":8888/scripts/submit_post.php",
 			data:{post_text:$postText, date:$now},
 		}).then(function(response) {
-			console.log(response);
 			// When ajax call goes through and response is received,
 			// Display on front end
 			$addToFrontList($postText, $now);
@@ -72,8 +67,6 @@ $(document).ready( function(){
 			url:'http://' + PostBoard.hostname + ":8888/scripts/delete_post.php",
 			data:{ID:$ID},
 		}).then(function(response) {
-			console.log(response);
-
 			// .remove() neccessary elements
 			$removePostElements();
 
@@ -119,8 +112,6 @@ $(document).ready( function(){
 			$maxID++;
 		else
 			$maxID = parseInt(($("#maxID").val()) + 1); // must be incremented to match mysql ID
-
-		console.log("inside of addToFrontList " + $maxID);
 
 		// Add that maxID to the appended html as hidden input just as hidden input
 		// is added on page load from php for loop
