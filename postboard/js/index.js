@@ -118,12 +118,13 @@ $(document).ready( function(){
 		if ($maxIdUsed)
 			$maxID++;
 		else
-			$maxID = $("#maxID").val();
+			$maxID = parseInt(($("#maxID").val()) + 1); // must be incremented to match mysql ID
 
 		console.log("inside of addToFrontList " + $maxID);
 
 		// Add that maxID to the appended html as hidden input just as hidden input
 		// is added on page load from php for loop
+
 		$("#listOfPosts").append(
 			"<li id=\"postItemId" + $maxID + "\" class=\"list-group-item postItem\"> " +
 			$postText + "</li>" + "<span id=\"date" + $maxID +"\" class=\"dateOfPost\">" +
