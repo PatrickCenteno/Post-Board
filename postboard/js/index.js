@@ -12,6 +12,10 @@ $(document).ready( function(){
 	// Click Handler for 'Go' button
 	$("#formSubmitButton").click( function (){
 		$postText = $("#submitTextBox").val();
+		if($.trim($postText).length == 0){
+			$("#submitAlert").show();
+			return;
+		}
 
 		// initializes moment object and formats date
 		$now = $formatDate(moment(new Date(), "YYYY-MM-DD"));
@@ -138,4 +142,8 @@ $(document).ready( function(){
 				return false;
 		return true;
 	}
+
+	 $("[data-hide]").click( function(){
+        $("#submitAlert").hide();
+    });
 });

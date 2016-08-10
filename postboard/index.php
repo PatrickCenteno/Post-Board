@@ -58,6 +58,12 @@
 		        <button id="formSubmitButton" class="btn btn-default" type="button">Go!</button>
 		      </span>
 		    </div>
+		    <div id="submitAlert" class="alert alert-warning alert-dismissible fade in" role="alert" hidden="hidden">
+			  <button type="button" class="close" data-hide="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			  <strong>Warning</strong> Please enter a message before submitting.
+			</div>
 		</div>
 	</section>
 
