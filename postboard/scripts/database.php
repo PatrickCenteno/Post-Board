@@ -48,4 +48,16 @@
 		else
 			return $temp[0];
 	}
+
+	function search_by_text($string){
+		$db_pdo = new PDO(DB_DSN, DB_U, DB_P);
+
+		$query = "SELECT ID, post FROM posts WHERE CONTAINS(post, ?)";
+
+		$stmt = $db_pdo->prepare($query);
+		$stmt->execute(array($string));
+
+		return $stmt->fetchall(PDO::FETCH_ASSOC);
+
+	}
  ?>

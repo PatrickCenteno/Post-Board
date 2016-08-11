@@ -46,6 +46,14 @@ $(document).ready( function(){
 		$("#deleteAlertModal").modal("toggle");
 	});
 
+	$("#searchBarButton").click(function() {
+		if($.trim($("#searchBarText").val()).length === 0 )
+			return;
+		console.log($("#searchBarText").val());
+
+		//make ajax call to server to search posts with that specific text
+	});
+
 	// Ajax call to add a post to database
 	$addPost = function($postText, $now){
 		$.ajax({

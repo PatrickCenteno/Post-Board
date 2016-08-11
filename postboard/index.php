@@ -38,9 +38,9 @@
 				<div class="col-md-6 searchBarContainer">
 					<form class="navbar-form">
 						<div class="form-group">
-				          	<input type="text" class="form-control" placeholder="Search">
+				          	<input id="searchBarText" type="text" class="form-control" placeholder="Search">
 				        </div>
-				        <button type="submit" class="btn btn-default">Search Posts</button>
+				        <button id="searchBarButton" type="button" class="btn btn-default">Search Posts</button>
 				    </form>
 				</div>
 			</div>
