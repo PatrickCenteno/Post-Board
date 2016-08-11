@@ -52,12 +52,14 @@
 	function search_by_text($string){
 		$db_pdo = new PDO(DB_DSN, DB_U, DB_P);
 
-		$query = "SELECT ID, post FROM posts WHERE CONTAINS(post, ?)";
+		// add neccessary search characters to param string
+		$substring  = '%' . $string . '%';
+
+		$query = "SELECT ID FROM posts WHERE post LIKE ?";
 
 		$stmt = $db_pdo->prepare($query);
-		$stmt->execute(array($string));
+		$stmt->execute(array($substring));
 
 		return $stmt->fetchall(PDO::FETCH_ASSOC);
-
 	}
  ?>

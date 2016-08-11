@@ -50,6 +50,7 @@ $(document).ready( function(){
 		if($.trim($("#searchBarText").val()).length === 0 )
 			return;
 		console.log($("#searchBarText").val());
+		$searchPosts($("#searchBarText").val());
 
 		//make ajax call to server to search posts with that specific text
 	});
@@ -78,6 +79,17 @@ $(document).ready( function(){
 			// .remove() neccessary elements
 			$removePostElements();
 
+		});
+	}
+
+	// Ajax call to search through posts
+	$searchPosts = function($string){
+		$.ajax({
+			type:'post',
+			url:"http://" + PostBoard.hostname + ":8888/scripts/search_posts.php",
+			data:{text:$string},
+		}).then(function(response) {
+			console.log(response);
 		});
 	}
 
