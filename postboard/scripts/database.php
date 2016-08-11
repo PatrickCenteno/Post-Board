@@ -60,6 +60,6 @@
 		$stmt = $db_pdo->prepare($query);
 		$stmt->execute(array($substring));
 
-		return $stmt->fetchall(PDO::FETCH_ASSOC);
+		return $stmt->fetchall(PDO::FETCH_NUM);
 	}
  ?>

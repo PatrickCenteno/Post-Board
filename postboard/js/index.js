@@ -84,12 +84,20 @@ $(document).ready( function(){
 
 	// Ajax call to search through posts
 	$searchPosts = function($string){
+		// $arrayOfIDs = [];
 		$.ajax({
 			type:'post',
 			url:"http://" + PostBoard.hostname + ":8888/scripts/search_posts.php",
 			data:{text:$string},
 		}).then(function(response) {
 			console.log(response);
+			$responseVar = $.parseJSON(response);
+			console.log("parsed response " + $responseVar);
+			console.log($responseVar[0] + " " + $responseVar[1]);
+
+		    // parse through the response and all IDS to a 
+			// $responseArray = $parseJSON(response);
+
 		});
 	}
 
@@ -142,6 +150,12 @@ $(document).ready( function(){
 			$now + "</span>" + "<button id=\"" + $maxID +"\" type=\"button\" class=\"btn btn-danger btn-small\">Delete Post</button>" +
 			"<input id=\"idNum" + $maxID + "\" type=\"hidden\" value=\"" + $maxID + "\">" );
 		$maxIdUsed = true;
+	}
+
+	$hightLightText = function($string, $IDs){
+		// Loop through each element in the array of IDs
+		// Locate the substring in each element
+		// log for debugging
 	}
 
 	// ensures that the global variables correspondin to the

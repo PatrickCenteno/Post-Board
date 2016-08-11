@@ -7,6 +7,8 @@
 	}
 
 	$substring = $_POST['text'];
+
+	// TODO: fix the way it returns so its a simple array of ids
 	print_r(json_encode(search_by_text($substring)));
 	// var_dump(search_by_text($substring));
 
