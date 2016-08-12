@@ -69,16 +69,24 @@
 
 	<section id="posts">
 		<input type="hidden" id="maxID" value="<?php echo $max_id; ?>">
-		<ul id="listOfPosts" class="list-group">
-			<?php 
-				for ($i = 0; $i < $num_of_posts; $i++){
-				?> 
-					<input id="<?php echo 'idNum' . $i; ?>" type="hidden" value="<?php echo $post_data[$i]['ID']; ?>">
-					<li id="<?php echo 'postItemId' . $i; ?>" class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
-					<span id="<?php echo 'date' . $i; ?>" class="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
-					<button id="<?php echo $i; ?>" type="button" class="btn btn-danger btn-small">Delete Post</button>
-		 <?php  } ?>
-		</ul>
+			<div class="row-fluid">
+				<div class="col-md-6">
+					<ul id="listOfPosts" class="list-group">
+						<?php 
+							for ($i = 0; $i < $num_of_posts; $i++){
+							?> 
+								<input id="<?php echo 'idNum' . $i; ?>" type="hidden" value="<?php echo $post_data[$i]['ID']; ?>">
+								<li id="<?php echo 'postItemId' . $i; ?>" class="list-group-item postItem"><?php echo $post_data[$i]['post']; ?></li>
+								<span id="<?php echo 'date' . $i; ?>" class="dateOfPost"><?php echo $post_data[$i]['postDate']; ?></span>
+								<button id="<?php echo $i; ?>" type="button" class="btn btn-danger btn-small">Delete Post</button>
+					 <?php  } ?>
+					</ul>
+				</div>
+				<div id="sideBar" class="col-md-4">
+					<!-- add a border to this -->
+					<div class="sidebarContent">My cyop</div>
+				</div>
+			</div>
 	</section>
 
 	<!-- Modal -->
