@@ -30,7 +30,7 @@
 
 	<!-- Will be a .php file and store some factors that will be hardcoded into this version in a db -->
 	<div id="navBarContainer">
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="row-fluid rowStyleClass">
 				<div class="col-md-6 headerClass">
 					<span id="headerText">Post-Board</span>

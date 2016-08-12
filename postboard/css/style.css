@@ -32,6 +32,10 @@
 	justify-content: center;
 }
 
+#submitFormSection{
+	margin-top: 110px;
+}
+
 #inputGroupID{
 	margin: 30px;
 }
