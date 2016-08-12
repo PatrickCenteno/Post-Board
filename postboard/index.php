@@ -99,6 +99,26 @@
       </div>
     </div>
 
+    <!-- Search Bar Results Modal -->
+	<div class="modal fade" id="searchBarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="searchDelete">Delete</h4>
+          </div>
+          <div id="searchModalBody" class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button id="dismissButtonSearch" type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
 
 </body>

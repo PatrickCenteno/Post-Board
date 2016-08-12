@@ -46,6 +46,7 @@ $(document).ready( function(){
 		$("#deleteAlertModal").modal("toggle");
 	});
 
+	// Search posts button click handler
 	$("#searchBarButton").click(function() {
 		if($.trim($("#searchBarText").val()).length === 0 )
 			return;
@@ -94,10 +95,7 @@ $(document).ready( function(){
 			$responseVar = $.parseJSON(response);
 			console.log("parsed response " + $responseVar);
 			console.log($responseVar[0] + " " + $responseVar[1]);
-
-		    // parse through the response and all IDS to a 
-			// $responseArray = $parseJSON(response);
-
+			$showSearchResults($responseVar);
 		});
 	}
 
@@ -113,7 +111,7 @@ $(document).ready( function(){
 		if ($day < 10)
 			$day = "0" + $day;
 
-		return $year + "-" + $month + "-" + $day;
+		return $year + "-" + $m$onth + "-" + $day;
 	}
 
 	// calls .remove on the post elements of the post
@@ -128,6 +126,22 @@ $(document).ready( function(){
 	// displays the bootstrap modal
 	$showModal = function(){
 		$("#deleteAlertModal").modal("show");
+	}
+
+	// Display search results modal
+	$showSearchResults = function($IDarray) {
+		$("#searchBarModal").modal("show");
+
+		// get full text of each post based on the ID
+		// since MySql ID starts at 1 and arrays start at 0,
+		// ID must be decremented to get the local post ID
+		for ($i = 0; i < $IDarrry.length; $i++) {
+			// append html to the modal with the text
+			// get the post text
+			$post = $("#postItemId" + $IDarray[$i]).val();
+			$("#searchModalBody").append("<div>" + $post + "</div>" );
+		};
+
 	}
 
 	// Appends an <li> and <div> tag to the #listOfPosts
@@ -152,11 +166,11 @@ $(document).ready( function(){
 		$maxIdUsed = true;
 	}
 
-	$hightLightText = function($string, $IDs){
-		// Loop through each element in the array of IDs
-		// Locate the substring in each element
-		// log for debugging
-	}
+	// $hightLightText = function($string, $IDs){
+	// 	// Loop through each element in the array of IDs
+	// 	// Locate the substring in each element
+	// 	// log for debugging
+	// }
 
 	// ensures that the global variables correspondin to the
 	// deleted post elements are null
@@ -169,7 +183,7 @@ $(document).ready( function(){
 		return true;
 	}
 
-	 $("[data-hide]").click( function(){
+	$("[data-hide]").click( function(){
         $("#submitAlert").hide();
     });
 });
