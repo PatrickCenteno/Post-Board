@@ -135,6 +135,7 @@ $(document).ready( function(){
 		// get full text of each post based on the ID
 		// since MySql ID starts at 1 and arrays start at 0,
 		// ID must be decremented to get the local post ID
+		$("#searchModalBody").html("");
 		for ($i = 0; $i < $IDarray.length; $i++) {
 			// append html to the modal with the text
 			// get the post text
