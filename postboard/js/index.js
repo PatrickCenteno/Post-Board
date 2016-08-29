@@ -99,8 +99,6 @@ $(document).ready( function(){
 		}).then(function(response) {
 			console.log(response);
 			$responseVar = $.parseJSON(response);
-			console.log("parsed response " + $responseVar);
-			console.log($responseVar[0] + " " + $responseVar[1]);
 			$showSearchResults($responseVar);
 		});
 	}
@@ -142,13 +140,16 @@ $(document).ready( function(){
 		// since MySql ID starts at 1 and arrays start at 0,
 		// ID must be decremented to get the local post ID
 		$("#searchModalBody").html("");
+		if ($IDarray.length == 0)
+			$("#searchModalBody").append("<div>Text not found</div>" );
 		for ($i = 0; $i < $IDarray.length; $i++) {
 			// append html to the modal with the text
 			// get the post text
 			// console.log(parseInt($IDarray[$i]));
 			console.log("#postItemId" + parseInt($IDarray[$i]));
-			$post = $("#postItemId" + parseInt($IDarray[$i])).val();
-			$("#searchModalBody").append("<div>" + $post + " Test Append" + "</div>" );
+			// $post = $("#postItemId" + parseInt($IDarray[$i])).val();
+			$post = $IDarray[$i];
+			$("#searchModalBody").append("<div>Post Number: " + $post + "</div>" );
 		};
 
 	}

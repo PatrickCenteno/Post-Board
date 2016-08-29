@@ -112,7 +112,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="searchDelete">Delete</h4>
+            <h4 class="modal-title" id="searchDelete">Text Found in:</h4>
           </div>
           <div id="searchModalBody" class="modal-body">
             
