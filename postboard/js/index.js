@@ -65,7 +65,13 @@ $(document).ready( function(){
 		}).then(function(response) {
 			// When ajax call goes through and response is received,
 			// Display on front end
-			$addToFrontList($postText, $now);
+			// Will sanstize on backend and return the "clean"
+			// response so that can be dynamically added
+			$responseVar = $.parseJSON(response)
+			if($responseVar.success === "true")
+				$addToFrontList($responseVar.post, $now);
+			else
+				alert("Unable to post: " + $responseVar.message);
 		});
 	}
 
@@ -111,7 +117,7 @@ $(document).ready( function(){
 		if ($day < 10)
 			$day = "0" + $day;
 
-		return $year + "-" + $m$onth + "-" + $day;
+		return $year + "-" + $month + "-" + $day;
 	}
 
 	// calls .remove on the post elements of the post

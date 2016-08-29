@@ -16,7 +16,9 @@
 	$post_text = $_POST['post_text'];
 	$date = $_POST['date'];
 
-	add_posts($post_text, $date);
-	print_r(json_encode(array('success' => 'true', 'message' => 'posted')));
+	$filtered_post = filter_var($post_text, FILTER_SANITIZE_SPECIAL_CHARS);
+
+	add_posts($filtered_post, $date);
+	print_r(json_encode(array('success' => 'true', 'message' => 'posted', 'post' => $filtered_post)));
 
  ?>
