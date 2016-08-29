@@ -9,7 +9,10 @@
 	$substring = $_POST['text'];
 
 	// TODO: fix the way it returns so its a simple array of ids
-	print_r(json_encode(search_by_text($substring)));
+
+	// Sanatize inputs
+	$filtered_search = filter_var($substring, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	print_r(json_encode(search_by_text($filtered_search)));
 	// var_dump(search_by_text($substring));
 
  ?>
