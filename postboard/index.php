@@ -84,7 +84,7 @@
 				</div>
 				<div id="sideBar" class="col-md-4">
 					<!-- add a border to this -->
-					<div class="sidebarContent">My cyop</div>
+					<div class="sidebarContent">Content goes here</div>
 				</div>
 			</div>
 	</section>
